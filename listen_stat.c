@@ -102,11 +102,13 @@ static struct tcp_seq_afinfo tcp4_listen_seq_afinfo = {
 
 static int __init tcp_listen_stat_init(void)
 {
+	printk(KERN_INFO "listen_stat loaded");
 	return tcp_proc_register(&init_net, &tcp4_listen_seq_afinfo);
 }
 
 static void __exit tcp_listen_stat_exit(void)
 {
+	printk(KERN_INFO "listen_stat unloaded");
 	tcp_proc_unregister(&init_net, &tcp4_listen_seq_afinfo);
 }
 
